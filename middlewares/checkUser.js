@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt"; // yoki hash qilish uchun boshqa kutubxona
+import bcrypt from "bcrypt";
 import User from "../database/models/user.js";
 
 export const checkUser = async (req, res, next) => {
@@ -24,8 +24,7 @@ export const checkUser = async (req, res, next) => {
       return res.status(401).json({ message: "Noto'g'ri parol." });
     }
 
-    // Keyingi middleware yoki funktsiyaga o'tish
-    req.user = user; // Agar kerak bo'lsa, foydalanuvchi ma'lumotlarini saqlash
+    req.user = user;
     next();
   } catch (error) {
     console.error("Xato:", error.message);

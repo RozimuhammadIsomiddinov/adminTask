@@ -6,7 +6,6 @@ export const checkerToken = async (req, res, next) => {
   if (!token) return res.status(400).send("Token not found!!!");
 
   try {
-    // Tokenni tekshirish
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.user = decoded;
     next();

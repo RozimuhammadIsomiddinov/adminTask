@@ -11,7 +11,6 @@ export const addProductToCart = async (userId, productId, quantity = 1) => {
       cartItem.quantity += quantity;
       await cartItem.save();
     } else {
-      // Agar mahsulot savatda bo'lmasa, yangi yozuv yaratish
       await Cart.create({ UserId: userId, ProductId: productId, quantity });
     }
 
